@@ -14,6 +14,30 @@ if ($_SESSION['userName'] == '' && $_SESSION['userPassword'] == '')
 
 else 
 {
+
+ $id = $_GET['productBarcode'];
+
+$queryTrx2 = "SELECT *
+		FROM as_products 
+		ORDER BY productName ASC";
+		$sqlTrx2 = mysqli_query($connect, $queryTrx2);
+		
+		// fetch data
+		$i = 1;
+		while ($dtTrx2 = mysqli_fetch_array($sqlTrx2))
+		{
+			
+			$dataTrx2[] = array(	
+								'productID' => $dtTrx2['productID'],
+								'productBarcode' => $dtTrx2['productBarcode'],
+								'productName' => $dtTrx2['productName'],
+								'gambar' => $dtTrx2['gambar'],
+								'no' => $i);
+			$i++;
+		}
+
+		$smarty->assign("dataShow2", $dataTrx2);
+
 	// get variable
 	$module = $_GET['module'];
 	$act = $_GET['act'];
@@ -486,6 +510,10 @@ else
 			$i++;
 		}
 
+
+
+
+
 		$ppn = ($dataIdentity['identityPPN']/100 * $total);
 		$ppnrupiah = rupiah($ppn);
 		
@@ -499,6 +527,7 @@ else
 		
 		// assign to the tpl
 		$smarty->assign("dataShow", $dataTrx);
+
 		$smarty->assign("total", $total);
 		$smarty->assign("rupiah", rupiah($total));
 		$smarty->assign("discTotal", $discTotal);
@@ -766,6 +795,32 @@ else
 		$smarty->assign("typeName", $typeName);
 		$smarty->assign("based", $based);
 	}
+
+
+	// if module is transaction and action is cancel
+	elseif ($module == 'trx' && $act == 'add')
+	{
+
+		$productBarcode = $_GET['productBarcode'];
+		
+		$queryTrx = "SELECT * FROM as_products WHERE productBarcode = '$productBarcode'";
+		$sqlTrx = mysqli_query($connect, $queryTrx);
+
+				while ($dtTrx = mysqli_fetch_array($sqlTrx))
+		{
+			
+			
+			$dataTrx[] = array(	'productID' => $dtTrx['productID'],
+								'productBarcode' => $dtTrx['productBarcode']
+								);
+			
+		}
+// print_r($dataTrx);
+$smarty->assign("productBarcode", $productBarcode);
+// $smarty->assign("productBarcode", $productBarcode);
+		// header("Location: sales_transactions.php?module=trx&act=add");
+	} // close bracket
+
 	
 	else
 	{

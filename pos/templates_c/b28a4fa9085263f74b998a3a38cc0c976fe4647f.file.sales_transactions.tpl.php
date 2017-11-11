@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.11, created on 2017-07-27 02:37:04
+<?php /* Smarty version Smarty-3.1.11, created on 2017-11-07 23:08:04
          compiled from ".\templates\sales_transactions.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:33765978ef60b50de6-59616319%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b28a4fa9085263f74b998a3a38cc0c976fe4647f' => 
     array (
       0 => '.\\templates\\sales_transactions.tpl',
-      1 => 1501089658,
+      1 => 1510070868,
       2 => 'file',
     ),
   ),
@@ -15,12 +15,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.11',
+  'unifunc' => 'content_5978ef61269095_28142341',
   'variables' => 
   array (
     'module' => 0,
     'act' => 0,
     'faktur' => 0,
     'tanggal' => 0,
+    'dataShow2' => 0,
     'code' => 0,
     'memberCode' => 0,
     'memberFullName' => 0,
@@ -69,8 +72,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'pageLink' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.11',
-  'unifunc' => 'content_5978ef61269095_28142341',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5978ef61269095_28142341')) {function content_5978ef61269095_28142341($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ("header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
@@ -505,8 +506,76 @@ li{
 										</tr>
 										<tr>
 											<td><button type="submit" class="btn btn-primary">Simpan</button></td>
+											<td><a href="#inline2" class="modalbox2"><button class="btn btn-primary" type="button">Cari Produk</button></a></td>
 										</tr>
 									</table>
+									<div id="inline2">	
+						<form id="product2" name="product2" method="GET" action="#">
+						<h3>Cari Produk</h3>
+						<table cellpadding="5" cellspacing="5" class="table table-bordered table-hover tablesorter" style="background-color: #FFFFFF; color: #000000;" width="100%">
+							<thead>
+								<tr>
+									<th width="40" style='border-left: 1px solid #CCCCCC;'>No. <i class="fa fa-sort"></i></th>
+									<th width="130" style='border-left: 1px solid #CCCCCC;' hidden="hidden">Decode<i class="fa fa-sort"></i></th>
+									<th width="330" style='border-left: 1px solid #CCCCCC;'>Name<i class="fa fa-sort"></i></th>
+									<th width="330" style='border-left: 1px solid #CCCCCC;'>Picture<i class="fa fa-sort"></i></th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php if (isset($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2'])) unset($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']);
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['name'] = 'dataShow2';
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['loop'] = is_array($_loop=$_smarty_tpl->tpl_vars['dataShow2']->value) ? count($_loop) : max(0, (int)$_loop); unset($_loop);
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['show'] = true;
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['max'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['loop'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['step'] = 1;
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['start'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['step'] > 0 ? 0 : $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['loop']-1;
+if ($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['show']) {
+    $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['total'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['loop'];
+    if ($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['total'] == 0)
+        $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['show'] = false;
+} else
+    $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['total'] = 0;
+if ($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['show']):
+
+            for ($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['index'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['start'], $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['iteration'] = 1;
+                 $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['iteration'] <= $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['total'];
+                 $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['index'] += $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['step'], $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['iteration']++):
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['rownum'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['iteration'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['index_prev'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['index'] - $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['step'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['index_next'] = $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['index'] + $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['step'];
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['first']      = ($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['iteration'] == 1);
+$_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['last']       = ($_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['iteration'] == $_smarty_tpl->tpl_vars['smarty']->value['section']['dataShow2']['total']);
+?>
+								<tr>
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;'><?php echo $_smarty_tpl->tpl_vars['dataShow2']->value[$_smarty_tpl->getVariable('smarty')->value['section']['dataShow2']['index']]['no'];?>
+</td>
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;' hidden="hidden"><?php echo $_smarty_tpl->tpl_vars['dataShow2']->value[$_smarty_tpl->getVariable('smarty')->value['section']['dataShow2']['index']]['productID'];?>
+</td>
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;'><?php echo $_smarty_tpl->tpl_vars['dataShow2']->value[$_smarty_tpl->getVariable('smarty')->value['section']['dataShow2']['index']]['productName'];?>
+</td>
+									<td >
+										<a href="sales_transactions.php?module=trx&act=add&=<?php echo $_smarty_tpl->tpl_vars['dataShow2']->value[$_smarty_tpl->getVariable('smarty')->value['section']['dataShow2']['index']]['productBarcode'];?>
+" name="productBarcode2"  id="productBarcode2">
+                                        <img src="gambar/<?php echo $_smarty_tpl->tpl_vars['dataShow2']->value[$_smarty_tpl->getVariable('smarty')->value['section']['dataShow2']['index']]['gambar'];?>
+" width="70" height="100" alt="" name="productBarcode2"  id="productBarcode2"/>
+                                        <p>{ echo $dataShow2['productID']; } </p>
+                                    </a>
+
+
+</td>
+
+										
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;'>
+										<a title="Edit" href="edit_products.php?module=product&act=edit&productID=<?php echo $_smarty_tpl->tpl_vars['dataShow2']->value[$_smarty_tpl->getVariable('smarty')->value['section']['dataShow2']['index']]['productID'];?>
+" data-width="930" data-height="380" class="various2 fancybox.iframe"><img src="images/icons/edit.png" width="20"></a>
+									</td>
+								</tr>
+								<?php endfor; endif; ?>
+							</tbody>
+						</table>
+						<button id="send2" class="btn btn-primary">Select</button>
+						</form>
+					</div>
 								</form>
 								<br>
 							</td>
@@ -1120,20 +1189,11 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['dataDetail']['last']       =
 " target="_blank"><button type="button" class="btn btn-success">Print</button></a>-->
 								<?php if ($_smarty_tpl->tpl_vars['identityPrintSale']->value=='1'){?>
 									<?php if ($_smarty_tpl->tpl_vars['pending']->value!='cash'){?>
-										<a onclick="finish_confirm('Transaksi selesai, mulai transaksi baru?','sales_transactions.php?module=trx&act=finish&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>
-&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>
-&status=<?php echo $_smarty_tpl->tpl_vars['trxStatus']->value;?>
-&pending=yes','print_sales_transactions.php?module=trx&act=print&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>
-&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>
-');"><button type="button" class="btn btn-info">Transaksi Selesai</button></a>
+										<a onclick="finish_confirm('Transaksi selesai, mulai transaksi baru?','sales_transactions.php?module=trx&act=finish&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>&status=<?php echo $_smarty_tpl->tpl_vars['trxStatus']->value;?>&pending=yes','print_sales_transactions.php?module=trx&act=print&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>');"><button type="button" class="btn btn-info">Transaksi Selesai</button></a>
 									<?php }?>
 								<?php }else{ ?>
 									<?php if ($_smarty_tpl->tpl_vars['pending']->value!='cash'){?>
-										<a onclick="finish_confirm('Transaksi selesai, mulai transaksi baru?','sales_transactions.php?module=trx&act=finish&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>
-&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>
-&status=<?php echo $_smarty_tpl->tpl_vars['trxStatus']->value;?>
-&pending=yes','print_mini_sales_transactions.php?module=trx&act=print&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>
-&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>
+										<a onclick="finish_confirm('Transaksi selesai, mulai transaksi baru?','sales_transactions.php?module=trx&act=finish&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>&status=<?php echo $_smarty_tpl->tpl_vars['trxStatus']->value;?>&pending=yes','print_mini_sales_transactions.php?module=trx&act=print&invoiceID=<?php echo $_smarty_tpl->tpl_vars['invoiceID']->value;?>&trxID=<?php echo $_smarty_tpl->tpl_vars['trxID']->value;?>
 ');"><button type="button" class="btn btn-info">Transaksi Selesai</button></a>
 									<?php }?>
 								<?php }?>
@@ -1550,5 +1610,9 @@ $_smarty_tpl->tpl_vars['smarty']->value['section']['dataTrx']['last']       = ($
 	</div><!-- /pusher -->
 </div><!-- /container -->
 		
+		<script type="text/javascript">
+			$(".modalbox2").fancybox();
+
+		</script>
 <?php echo $_smarty_tpl->getSubTemplate ("footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

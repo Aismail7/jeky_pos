@@ -1,6 +1,6 @@
 
 /*---------------------------------------------------------------
-  SQL DB BACKUP 27.07.2017 16:53 
+  SQL DB BACKUP 06.11.2017 17:34 
   HOST: localhost
   DATABASE: dbpos
   TABLES: *
@@ -39,10 +39,9 @@ CREATE TABLE `as_barcodes` (
   `modifiedDate` datetime NOT NULL,
   `modifiedUserID` int(11) NOT NULL,
   PRIMARY KEY (`barcodeID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
-INSERT INTO `as_barcodes` VALUES   ('28','1SOSRO','3','2017-07-27 12:47:03','1','0000-00-00 00:00:00','0');
-INSERT INTO `as_barcodes` VALUES ('29','1SOSRO','3','2017-07-27 12:47:03','1','0000-00-00 00:00:00','0');
-INSERT INTO `as_barcodes` VALUES ('30','1SOSRO','3','2017-07-27 12:47:03','1','0000-00-00 00:00:00','0');
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+INSERT INTO `as_barcodes` VALUES   ('31','5598751313889','2','2017-07-31 00:59:28','1','0000-00-00 00:00:00','0');
+INSERT INTO `as_barcodes` VALUES ('32','5598751313889','2','2017-07-31 00:59:28','1','0000-00-00 00:00:00','0');
 
 /*---------------------------------------------------------------
   TABLE: `as_brands`
@@ -215,7 +214,7 @@ CREATE TABLE `as_identity` (
   `modifiedUserID` int(11) NOT NULL,
   PRIMARY KEY (`identityID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-INSERT INTO `as_identity` VALUES   ('1','Jeky Jumansyah Point Of Sales','Jl.Balaraja, Kab.Tangerang - Banten','(021) 123456789','jejupos@gmail.com','pj_170726093303_coollogo_com-738319.jpg','Jeky Jumansyah','(0231) 358630','10','1','1','1','1','1','1','434893748987794','93485948594859489','2017-07-27','2017-07-27 12:37:59','1');
+INSERT INTO `as_identity` VALUES   ('1','Jeky Jumansyah Point Of Sales','Jl.Balaraja, Kab.Tangerang - Banten','(021) 123456789','jejupos@gmail.com','pj_170816040359_pj_170803085608_pj_170726093303_coollogo_com-738319.jpg','Jeky Jumansyah','(0231) 358630','10','1','1','1','1','1','1','434893748987794','93485948594859489','2017-07-27','2017-08-16 21:04:06','1');
 
 /*---------------------------------------------------------------
   TABLE: `as_members`
@@ -238,6 +237,39 @@ INSERT INTO `as_members` VALUES ('2','00002','Vans Motor','Jl. Ki Hajar Dewantar
 INSERT INTO `as_members` VALUES ('3','00003','GBI Arjawinangun','Jl. Kantor Pos No. 1 Arjawinangun Cirebon','(0231) 357216','2014-10-25 10:59:05','1','0000-00-00 00:00:00','0');
 
 /*---------------------------------------------------------------
+  TABLE: `as_prdid`
+  ---------------------------------------------------------------*/
+DROP TABLE IF EXISTS `as_prdid`;
+CREATE TABLE `as_prdid` (
+  `idprd` int(11) NOT NULL AUTO_INCREMENT,
+  `namaid` varchar(100) NOT NULL,
+  `namasub` varchar(150) NOT NULL,
+  `insert_by` varchar(30) NOT NULL,
+  `insert_date` date NOT NULL,
+  `status` varchar(1) NOT NULL,
+  PRIMARY KEY (`idprd`,`namaid`,`namasub`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+INSERT INTO `as_prdid` VALUES   ('1','TEH CELUP','SOSRO ','','0000-00-00','Y');
+INSERT INTO `as_prdid` VALUES ('2','KUE','TANGGO','','0000-00-00','Y');
+INSERT INTO `as_prdid` VALUES ('3','WAFER','NISSIN','1','2017-07-31','Y');
+INSERT INTO `as_prdid` VALUES ('8','TEH CELUP','SARIWANGI','1','2017-07-31','Y');
+INSERT INTO `as_prdid` VALUES ('9','ADEM','GARY','1','2017-07-31','Y');
+INSERT INTO `as_prdid` VALUES ('10','JALABRIA','CHOCOLATOS','1','2017-07-31','Y');
+
+/*---------------------------------------------------------------
+  TABLE: `as_prdsub`
+  ---------------------------------------------------------------*/
+DROP TABLE IF EXISTS `as_prdsub`;
+CREATE TABLE `as_prdsub` (
+  `idsubprd` int(11) NOT NULL,
+  `idprd` int(11) NOT NULL,
+  `namasub` varchar(250) NOT NULL,
+  `status` varchar(1) NOT NULL,
+  `insert_by` varchar(30) NOT NULL,
+  `insert_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*---------------------------------------------------------------
   TABLE: `as_products`
   ---------------------------------------------------------------*/
 DROP TABLE IF EXISTS `as_products`;
@@ -258,20 +290,18 @@ CREATE TABLE `as_products` (
   `createdUserID` int(11) NOT NULL,
   `modifiedDate` datetime NOT NULL,
   `modifiedUserID` int(11) NOT NULL,
+  `gambar` varchar(100) NOT NULL,
   PRIMARY KEY (`productID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-INSERT INTO `as_products` VALUES   ('1','1','11','9','3212758009345','SOSRO 280ML JASMINE TEA','437443789213','4500','5500','0','39','-','2014-09-27 14:04:34','1','2014-10-25 10:40:35','1');
-INSERT INTO `as_products` VALUES ('2','1','13','13','2140912123601','TANGO WAFER CUP SMALL','893028323287','11990','12990','0','53','-','2014-09-27 14:04:34','1','2014-10-25 10:44:16','1');
-INSERT INTO `as_products` VALUES ('3','1','13','13','2140911043122','TANGO WAFER BIG 24 PCS','843437837833','8790','9900','0','50','-','2014-09-27 14:04:34','1','2014-10-25 10:43:43','1');
-INSERT INTO `as_products` VALUES ('4','1','13','13','2140902110832','TANGO WAFER MIDDLE 12 PCS','241451243485','3400','3900','0','46','-','2014-09-27 14:04:34','1','2014-10-25 10:43:03','1');
-INSERT INTO `as_products` VALUES ('5','1','13','13','4339019760411','TANGO WAFER SMALL 4 PCS','123434348383','900','1200','0','48','-','2014-09-27 14:04:34','1','2014-10-25 10:42:28','1');
-INSERT INTO `as_products` VALUES ('6','1','11','9','4452904810353','SOSRO 500ML JASMINE TEA','438789754878','5600','7000','0','46','-','2014-09-27 14:04:34','1','2014-10-25 10:41:39','1');
-INSERT INTO `as_products` VALUES ('7','1','11','13','5365664891728','SOSRO TEH CELUP','','1800','2200','0','1','-','2014-10-25 10:45:01','1','2014-10-25 10:49:10','1');
-INSERT INTO `as_products` VALUES ('8','1','11','9','5598751313889','SOSRO TEH KANTUNG','','1780','2150','0','50','-','2014-10-25 10:47:17','1','0000-00-00 00:00:00','0');
-INSERT INTO `as_products` VALUES ('9','3','11','9','170727124053','SOSRO TEH CLUP','','9000','10000','0','100','TEST','2017-07-27 12:42:28','1','0000-00-00 00:00:00','0');
-INSERT INTO `as_products` VALUES ('10','3','11','9','1SOSRO','TEH CELUP SOSRO','','1000','1200','0','2','TEST','2017-07-27 12:43:50','1','0000-00-00 00:00:00','0');
-INSERT INTO `as_products` VALUES ('11','3','11','9','1SOSRO','TEH CELUP SOSRO','','1200','1300','0','2','TETS','2017-07-27 12:44:34','1','0000-00-00 00:00:00','0');
-INSERT INTO `as_products` VALUES ('12','0','0','0','170727042455','i','','9','99','0','9','','2017-07-27 16:25:28','1','0000-00-00 00:00:00','0');
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+INSERT INTO `as_products` VALUES   ('1','1','11','9','3212758009345','SOSRO 280ML JASMINE TEA','437443789213','4500','5500','0','39','-','2014-09-27 14:04:34','1','2014-10-25 10:40:35','1','');
+INSERT INTO `as_products` VALUES ('2','1','13','13','2140912123601','TANGO WAFER CUP SMALL','893028323287','11990','12990','0','52','-','2014-09-27 14:04:34','1','2014-10-25 10:44:16','1','');
+INSERT INTO `as_products` VALUES ('3','1','13','13','2140911043122','TANGO WAFER BIG 24 PCS','843437837833','8790','9900','0','50','-','2014-09-27 14:04:34','1','2014-10-25 10:43:43','1','');
+INSERT INTO `as_products` VALUES ('4','1','13','13','2140902110832','TANGO WAFER MIDDLE 12 PCS','241451243485','3400','3900','0','46','-','2014-09-27 14:04:34','1','2014-10-25 10:43:03','1','');
+INSERT INTO `as_products` VALUES ('5','1','13','13','4339019760411','TANGO WAFER SMALL 4 PCS','123434348383','900','1200','0','48','-','2014-09-27 14:04:34','1','2014-10-25 10:42:28','1','');
+INSERT INTO `as_products` VALUES ('6','1','11','9','4452904810353','SOSRO 500ML JASMINE TEA','438789754878','5600','7000','0','46','-','2014-09-27 14:04:34','1','2014-10-25 10:41:39','1','');
+INSERT INTO `as_products` VALUES ('7','1','11','13','5365664891728','SOSRO TEH CELUP','','1800','2200','0','1','-','2014-10-25 10:45:01','1','2014-10-25 10:49:10','1','');
+INSERT INTO `as_products` VALUES ('8','1','11','9','5598751313889','SOSRO TEH KANTUNG','','1780','2150','0','50','-','2014-10-25 10:47:17','1','0000-00-00 00:00:00','0','');
+INSERT INTO `as_products` VALUES ('16','1','8','10','170816100855','IRFANULHAKIM','','1000','1500','1','2','AHMAD','2017-08-16 22:09:35','1','0000-00-00 00:00:00','0','ismail.jpg');
 
 /*---------------------------------------------------------------
   TABLE: `as_receivables`
@@ -371,7 +401,7 @@ CREATE TABLE `as_sales_detail_transactions` (
   `modifiedDate` datetime NOT NULL,
   `modifiedUserID` int(11) NOT NULL,
   PRIMARY KEY (`detailID`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 INSERT INTO `as_sales_detail_transactions` VALUES   ('12','YSSB141025074334','3212758009345','0','0','5500','5','','0','0','27500','2014-10-25 19:53:19','1','2014-10-25 19:53:43','1');
 INSERT INTO `as_sales_detail_transactions` VALUES ('13','YSSB141025074334','2140912123601','11990','11990','12990','1','','0','0','12990','2014-10-25 19:53:21','1','0000-00-00 00:00:00','0');
 INSERT INTO `as_sales_detail_transactions` VALUES ('14','YSSB141025074334','4339019760411','0','0','1200','2','','0','0','2400','2014-10-25 19:53:24','1','2014-10-25 19:53:31','1');
@@ -382,6 +412,12 @@ INSERT INTO `as_sales_detail_transactions` VALUES ('19','BPMT170727013550','3212
 INSERT INTO `as_sales_detail_transactions` VALUES ('20','HMRY170727023919','5365664891728','0','0','2200','49','','0','0','107800','2017-07-27 02:41:44','1','2017-07-27 02:42:03','1');
 INSERT INTO `as_sales_detail_transactions` VALUES ('21','APRH170727123544','1SOSRO','1000','1000','1200','1','','0','0','1200','2017-07-27 12:52:09','1','0000-00-00 00:00:00','0');
 INSERT INTO `as_sales_detail_transactions` VALUES ('22','OSNM170727091675','3212758009345','4500','4500','5500','1','','0','0','5500','2017-07-27 21:22:54','1','0000-00-00 00:00:00','0');
+INSERT INTO `as_sales_detail_transactions` VALUES ('23','ZVMP170727092390','3212758009345','0','0','5500','15','','0','0','82500','2017-07-27 23:05:04','1','2017-07-27 23:07:11','1');
+INSERT INTO `as_sales_detail_transactions` VALUES ('24','KWRP170805081515','3212758009345','0','0','5500','10','','0','0','55000','2017-08-05 08:27:43','1','2017-08-05 08:27:57','1');
+INSERT INTO `as_sales_detail_transactions` VALUES ('25','MBMV170819091386','2140912123601','11990','11990','12990','1','','0','0','12990','2017-08-19 21:34:44','1','0000-00-00 00:00:00','0');
+INSERT INTO `as_sales_detail_transactions` VALUES ('26','PCFT170820095220','5365664891728','1800','1800','2200','1','','0','0','2200','2017-08-20 22:42:14','1','0000-00-00 00:00:00','0');
+INSERT INTO `as_sales_detail_transactions` VALUES ('27','TBTS170907105818','2140912123601','11990','11990','12990','1','','0','0','12990','2017-09-07 11:00:34','1','0000-00-00 00:00:00','0');
+INSERT INTO `as_sales_detail_transactions` VALUES ('28','GKFB171106103540','2140912123601','11990','11990','12990','1','','0','0','12990','2017-11-06 23:31:19','1','0000-00-00 00:00:00','0');
 
 /*---------------------------------------------------------------
   TABLE: `as_sales_transactions`
@@ -409,13 +445,14 @@ CREATE TABLE `as_sales_transactions` (
   `modifiedDate` datetime NOT NULL,
   `modifiedUserID` int(11) NOT NULL,
   PRIMARY KEY (`trxID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 INSERT INTO `as_sales_transactions` VALUES   ('2','','YSSB141025074334','','','','2014-10-25','0','42890','0','4289','47179','50000','2821','1','0000-00-00','2014-10-25 19:59:58','1','2014-10-25 20:02:52','1');
 INSERT INTO `as_sales_transactions` VALUES ('3','00003','FTMP141025080798','GBI Arjawinangun','Jl. Kantor Pos No. 1 Arjawinangun Cirebon','(0231) 357216','2014-10-25','0','3900','0','390','4290','4500','210','1','0000-00-00','2014-10-25 20:23:04','1','2014-10-25 20:25:25','1');
 INSERT INTO `as_sales_transactions` VALUES ('4','00002','BPMT170727013550','Vans Motor','Jl. Ki Hajar Dewantara No. 130 Arjawinangun Cirebon','(0231) 359000','2017-07-27','0','22000','0','2200','24200','24200','0','1','0000-00-00','2017-07-27 02:38:52','1','0000-00-00 00:00:00','0');
 INSERT INTO `as_sales_transactions` VALUES ('5','00001','HMRY170727023919','CV. ASFA Solution','Jl. Pegadaian No. 38 RT. 01 RW. 01 Arjawinangun - Cirebon','(0231) 358630','2017-07-27','0','107800','0','10780','118580','118580','0','1','0000-00-00','2017-07-27 02:42:17','1','0000-00-00 00:00:00','0');
 INSERT INTO `as_sales_transactions` VALUES ('6','00001','APRH170727123544','CV. ASFA Solution','Jl. Pegadaian No. 38 RT. 01 RW. 01 Arjawinangun - Cirebon','(0231) 358630','2017-07-27','2000','2400','0','240','2640','2640','0','1','0000-00-00','2017-07-27 12:52:48','1','0000-00-00 00:00:00','0');
 INSERT INTO `as_sales_transactions` VALUES ('7','00001','OSNM170727091675','CV. ASFA Solution','Jl. Pegadaian No. 38 RT. 01 RW. 01 Arjawinangun - Cirebon','(0231) 358630','2017-07-27','4500','5500','0','550','6050','1000','0','3','2017-07-31','2017-07-27 21:23:25','1','0000-00-00 00:00:00','0');
+INSERT INTO `as_sales_transactions` VALUES ('8','','GKFB171106103540','','','','2017-11-06','11990','12990','0','1299','14289','15000','711','1','0000-00-00','2017-11-06 23:32:00','1','0000-00-00 00:00:00','0');
 
 /*---------------------------------------------------------------
   TABLE: `as_stock_opname`

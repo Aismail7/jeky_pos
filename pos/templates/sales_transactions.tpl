@@ -426,8 +426,47 @@ li{
 										</tr>
 										<tr>
 											<td><button type="submit" class="btn btn-primary">Simpan</button></td>
+											<td><a href="#inline2" class="modalbox2"><button class="btn btn-primary" type="button">Cari Produk</button></a></td>
 										</tr>
 									</table>
+									<div id="inline2">	
+						<form id="product2" name="product2" method="GET" action="#">
+						<h3>Cari Produk</h3>
+						<table cellpadding="5" cellspacing="5" class="table table-bordered table-hover tablesorter" style="background-color: #FFFFFF; color: #000000;" width="100%">
+							<thead>
+								<tr>
+									<th width="40" style='border-left: 1px solid #CCCCCC;'>No. <i class="fa fa-sort"></i></th>
+									<th width="130" style='border-left: 1px solid #CCCCCC;' hidden="hidden">Decode<i class="fa fa-sort"></i></th>
+									<th width="330" style='border-left: 1px solid #CCCCCC;'>Name<i class="fa fa-sort"></i></th>
+									<th width="330" style='border-left: 1px solid #CCCCCC;'>Picture<i class="fa fa-sort"></i></th>
+								</tr>
+							</thead>
+							<tbody>
+								{section name=dataShow2 loop=$dataShow2}
+								<tr>
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;'>{$dataShow2[dataShow2].no}</td>
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;' hidden="hidden">{$dataShow2[dataShow2].productID}</td>
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;'>{$dataShow2[dataShow2].productName}</td>
+									<td >
+										<a href="product_onclick.php?productID={$dataShow2[dataShow2].productBarcode}" name="productBarcode2"  id="productBarcode2">
+                                        <img src="gambar/{$dataShow2[dataShow2].gambar}" width="70" height="100" alt="" name="productBarcode2"  id="productBarcode2"/>
+                                        <p>{ echo $dataShow2['productID']; } </p>
+                                    </a>
+
+
+</td>
+
+										
+									<td style='border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC;'>
+										<a title="Edit" href="edit_products.php?module=product&act=edit&productID={$dataShow2[dataShow2].productID}" data-width="930" data-height="380" class="various2 fancybox.iframe"><img src="images/icons/edit.png" width="20"></a>
+									</td>
+								</tr>
+								{/section}
+							</tbody>
+						</table>
+						<button id="send2" class="btn btn-primary">Select</button>
+						</form>
+					</div>
 								</form>
 								<br>
 							</td>
@@ -1161,4 +1200,8 @@ li{
 	</div><!-- /pusher -->
 </div><!-- /container -->
 		
+		<script type="text/javascript">
+			$(".modalbox2").fancybox();
+
+		</script>
 {include file="footer.tpl"}
